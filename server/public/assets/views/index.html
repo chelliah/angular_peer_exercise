@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Zeta List</h1>
+
+        <div ng-controller="PostController">
+            <div>
+                <input type="text" ng-model="values.name" placeholder="Enter a Name">
+                <input type="number" ng-model="values.number" placeholder="Enter a Number">
+                <input type="text" ng-model="values.location" placeholder="Enter a Location">
+                <button id="submit" ng-click="clickButton(values)" class="btn btn-info">Submit</button>
+            </div>
+                <button ng-click="sortName()" class="btn btn-primary">Sort by Name</button>
+                <button ng-click="sortNumber()" class="btn btn-primary">Sort by Number</button>
+                <button ng-click="sortLocation()" class="btn btn-primary">Sort by Location</button>
+
+            <div ng-repeat="person in people | orderBy:order">
+                <person-info info="person" person-click="deletePerson(person)"></person-info>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
